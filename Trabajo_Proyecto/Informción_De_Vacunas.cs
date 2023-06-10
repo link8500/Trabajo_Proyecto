@@ -36,34 +36,42 @@ namespace Trabajo_Proyecto
             try
             {
                 conn.con.Open();
-                conn.cmd = new SqlCommand(cadsql, conn.con);
+                conn.cmd = new SqlCommand(cadsql,conn.con);
                 conn.red = conn.cmd.ExecuteReader();
-                conn.cmd2 = new SqlCommand(cad, conn.con);
-                conn.red2 = conn.cmd2.ExecuteReader();
+                
                 while (conn.red.Read())
                 {
-                    string nomb = conn.red2[0].ToString();
-
-                    string edad = conn.red2[1].ToString();
-                    string dirrecion = conn.red2[2].ToString();
-                    string telefono = conn.red2[3].ToString();
-                    string enfermedad = conn.red2[4].ToString();
+                    
 
 
                     string fecha = conn.red[0].ToString();
-                    string dosis = conn.red[6].ToString();
+                    string dosis = conn.red[5].ToString();
                     string tipo = conn.red[1].ToString();
                     string rango = conn.red[2].ToString();
                     string fechaad = conn.red[3].ToString();
                     string fechapro = conn.red[4].ToString();
-                    tablavacunas.Rows.Add(nomb, tipo, dosis, fechapro, edad, enfermedad);
+                    tablavacunas.Rows.Add(null, tipo, dosis, fechapro,null,null);
                 }
-
+                conn.con.Close();
+                conn.con.Open();
+                conn.cmd = new SqlCommand(cad, conn.con);
+                conn.red = conn.cmd.ExecuteReader();
+                while (conn.red.Read())
+                {
+                    string nomb = conn.red[0].ToString();
+                    string edad = conn.red[1].ToString();
+                    string dirrecion = conn.red[2].ToString();
+                    string telefono = conn.red[3].ToString();
+                    string enfermedad = conn.red[4].ToString();
+                    tablavacunas.Rows.Add(nomb, null, null, null, edad, enfermedad);
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                conn.mensaje = ex.ToString();
+                MessageBox.Show(conn.mensaje);
 
-                throw;
+
             }
             conn.con.Close();
 
