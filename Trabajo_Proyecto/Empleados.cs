@@ -19,6 +19,7 @@ namespace Trabajo_Proyecto
         ConexionBDSQL.Class1 conn = new ConexionBDSQL.Class1();
         public Empleados()
         {
+            
             InitializeComponent();
         }
 
@@ -74,7 +75,9 @@ namespace Trabajo_Proyecto
 
         private void iconBteliminar_Click(object sender, EventArgs e)
         {
-
+            limpiar();
+            String cadena = "DELETE FROM Empleados";
+            conn.eliminardatos(cadena);
         }
 
         private void btmodificar_Click(object sender, EventArgs e)
@@ -84,12 +87,17 @@ namespace Trabajo_Proyecto
 
         private void iconBtActualizar_Click(object sender, EventArgs e)
         {
+            limpiar();
+            
+        }
+        public void limpiar () 
+        {
             txtnombre.Clear();
             txtcargo.Clear();
             txtdepartamento.Clear();
             txtnumero.Clear();
             txtedad.Clear();
-            
+            tabla.Rows.Clear();
         }
 
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)

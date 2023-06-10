@@ -65,7 +65,9 @@
             tabla.RowTemplate.Height = 25;
             tabla.Size = new Size(350, 277);
             tabla.TabIndex = 2;
+            tabla.CellClick += tabla_CellClick;
             tabla.CellContentClick += tabla_CellContentClick;
+            tabla.Click += tabla_Click;
             // 
             // Clmempleados
             // 

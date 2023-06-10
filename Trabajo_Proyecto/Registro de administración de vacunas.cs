@@ -43,6 +43,14 @@ namespace Trabajo_Proyecto
         private void bteliminar_Click(object sender, EventArgs e)
         {
             tabla.Rows.Clear();
+            txtdosis.Clear();
+            txtfecha.Clear();
+            txtfechadeadministracion.Clear();
+            txtfechadeprimeravacuna.Clear();
+            txt_rangode_edades.Clear();
+            txt_tipo_de_vacuna.Clear();
+            String cadena = "DELETE FROM registro_de_vacunas";
+            conn.eliminardatos(cadena);
         }
 
         private void iconMostrar_Click(object sender, EventArgs e)

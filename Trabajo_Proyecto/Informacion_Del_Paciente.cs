@@ -37,6 +37,8 @@ namespace Trabajo_Proyecto
         private void bteliminar_Click(object sender, EventArgs e)
         {
             tabla.Rows.Clear();
+            String cadena = "DELETE FROM Pacientes";
+            conn.eliminardatos(cadena);
         }
 
         private void btmostrar_Click(object sender, EventArgs e)

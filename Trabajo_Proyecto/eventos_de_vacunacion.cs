@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Trabajo_Proyecto
@@ -15,6 +16,7 @@ namespace Trabajo_Proyecto
     {
 
         ConexionBDSQL.Class1 conn = new ConexionBDSQL.Class1();
+        listado lista = new listado();
         public eventos_de_vacunacion()
         {
             InitializeComponent();
@@ -23,9 +25,13 @@ namespace Trabajo_Proyecto
 
         private void btSeleccion_Click(object sender, EventArgs e)
         {
-            listado lista = new listado();
-            lista.Show(this);
+
+            lista.Show();
+
+
+
         }
+
 
         private void btGuardar_Click(object sender, EventArgs e)
         {
@@ -38,24 +44,30 @@ namespace Trabajo_Proyecto
             {
                 ejecucion = 'N';
             }
-            tabla.Rows.Add(ejecucion, txtfecha.Text, txttipodevacuna.Text, txtRangoDeEdades.Text, txtseleccion.Text);
-            MessageBox.Show(conn.Insertarcampaña(ejecucion, txtfecha.Text, txttipodevacuna.Text, txtRangoDeEdades.Text, txtZonaDondeSeAplico.Text, txtseleccion.Text));
+            string seleccion = comboSeleccion.SelectedItem.ToString();
+            
+            tabla.Rows.Add(ejecucion, txtfecha.Text, txttipodevacuna.Text, txtRangoDeEdades.Text, txtZonaDondeSeAplico.Text, seleccion);
+            MessageBox.Show(conn.Insertarcampaña(ejecucion, txtfecha.Text, txttipodevacuna.Text, txtRangoDeEdades.Text, txtZonaDondeSeAplico.Text ,seleccion));
         }
 
         private void btActualizar_Click(object sender, EventArgs e)
         {
             limpiar();
+
+
         }
 
         private void btEliminar_Click(object sender, EventArgs e)
         {
             tabla.Rows.Clear();
+            String cadena = "DELETE FROM Informacion";
+            conn.eliminardatos(cadena);
         }
 
         private void btMostrar_Click(object sender, EventArgs e)
         {
             limpiar();
-            string cadsql = "SELECT * From Campaña";
+            string cadsql = "SELECT * From Informacion";
             try
             {
                 conn.con.Open();
@@ -87,17 +99,50 @@ namespace Trabajo_Proyecto
         {
 
         }
-        public void limpiar() 
+        public void limpiar()
         {
-            BtModificar.Enabled = false;
-            btEliminar.Enabled = false;
+           
             txtfecha.Clear();
             txtRangoDeEdades.Clear();
-            txtseleccion.Clear();
             txttipodevacuna.Clear();
             txtZonaDondeSeAplico.Clear();
-            txtseleccion.Clear();
             tabla.Rows.Clear();
+        }
+
+        private void txtseleccion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eventos_de_vacunacion_Load(object sender, EventArgs e)
+        {
+            string cadsql = "SELECT * From Empleados";
+            try
+            {
+                conn.con.Open();
+                conn.cmd = new SqlCommand(cadsql, conn.con);
+                conn.red = conn.cmd.ExecuteReader();
+                while (conn.red.Read())
+                {
+                    string nomb = conn.red[0].ToString();
+
+
+                    comboSeleccion.Items.Add(nomb);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            conn.con.Close();
+            comboSeleccion.SelectedIndex = 0;
+        }
+
+        private void comboSeleccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using VisioForge.Libs.TagLib;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Trabajo_Proyecto
@@ -17,8 +18,12 @@ namespace Trabajo_Proyecto
     public partial class listado : Form
     {
         ConexionBDSQL.Class1 conn = new ConexionBDSQL.Class1();
+
+
+
         public listado()
         {
+
             InitializeComponent();
         }
 
@@ -26,9 +31,11 @@ namespace Trabajo_Proyecto
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            eventos_de_vacunacion lista = new eventos_de_vacunacion();
-            lista.txtseleccion.Text = tabla.CurrentRow.ToString();
-            this.Close();
+
+
+
+
+            this.Hide();
         }
 
         private void tabla_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -59,6 +66,17 @@ namespace Trabajo_Proyecto
                 throw;
             }
             conn.con.Close();
+        }
+
+        private void tabla_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabla_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
         }
     }
 }

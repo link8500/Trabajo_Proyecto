@@ -98,7 +98,7 @@ namespace ConexionBDSQL
         }
         public String Insertarcampaña(char ejecucion, string fecha, string tipo, string rango, string zona, string empleados)
         {
-            String cadena = "INSERT INTO Campaña(Ejecucion,Fecha,Tipo,Rango,Zona,Empleados)" +
+            String cadena = "INSERT INTO Informacion(Ejecucion,Fecha,Tipo,Rango,Zona,Empleados)" +
                 "values('" + ejecucion + "','" + fecha + "','" + tipo + "','" + rango + "','" + zona + "','" + empleados + "')";
             try
             {
@@ -117,8 +117,48 @@ namespace ConexionBDSQL
             return mensaje;
 
         }
-       
-       
-        
+        public String InsertSeleccion( string Datos)
+        {
+            String cadena = "INSERT INTO Datos(Datos)" +
+                "values('" + Datos + "')";
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand(cadena, con);
+                cmd.ExecuteNonQuery();
+                mensaje = "los datos se agregaron exitoxamente";
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.ToString();
+            }
+            con.Close();
+            return mensaje;
+
+        }
+        public string eliminardatos(string datos) 
+        {
+            
+                 
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand(datos, con);
+                cmd.ExecuteNonQuery();
+                mensaje = "se elimino exitosamente";
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.ToString();
+            }
+            con.Close();
+            return mensaje;
+        }
+
+
     }
 }

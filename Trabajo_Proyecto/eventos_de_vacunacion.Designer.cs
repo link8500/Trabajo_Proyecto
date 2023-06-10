@@ -54,7 +54,7 @@
             ClmRangodeedades = new DataGridViewTextBoxColumn();
             ClmZona_donde_se_aplico = new DataGridViewTextBoxColumn();
             Clmparticipacion = new DataGridViewTextBoxColumn();
-            txtseleccion = new TextBox();
+            comboSeleccion = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tabla).BeginInit();
             SuspendLayout();
@@ -281,6 +281,7 @@
             // 
             // btSeleccion
             // 
+            btSeleccion.Enabled = false;
             btSeleccion.FlatAppearance.BorderSize = 0;
             btSeleccion.FlatStyle = FlatStyle.Flat;
             btSeleccion.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -367,22 +368,21 @@
             Clmparticipacion.HeaderText = "Empleados Que Participaron";
             Clmparticipacion.Name = "Clmparticipacion";
             // 
-            // txtseleccion
+            // comboSeleccion
             // 
-            txtseleccion.Enabled = false;
-            txtseleccion.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            txtseleccion.Location = new Point(297, 164);
-            txtseleccion.Multiline = true;
-            txtseleccion.Name = "txtseleccion";
-            txtseleccion.Size = new Size(257, 40);
-            txtseleccion.TabIndex = 19;
+            comboSeleccion.FormattingEnabled = true;
+            comboSeleccion.Location = new Point(299, 164);
+            comboSeleccion.Name = "comboSeleccion";
+            comboSeleccion.Size = new Size(224, 23);
+            comboSeleccion.TabIndex = 19;
+            comboSeleccion.SelectedIndexChanged += comboSeleccion_SelectedIndexChanged;
             // 
             // eventos_de_vacunacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 0, 64);
-            Controls.Add(txtseleccion);
+            Controls.Add(comboSeleccion);
             Controls.Add(tabla);
             Controls.Add(rdbNo);
             Controls.Add(rdbSi);
@@ -400,6 +400,7 @@
             Controls.Add(lbejecutada);
             Name = "eventos_de_vacunacion";
             Size = new Size(705, 413);
+            Load += eventos_de_vacunacion_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tabla).EndInit();
             ResumeLayout(false);
@@ -434,6 +435,6 @@
         private DataGridViewTextBoxColumn ClmRangodeedades;
         private DataGridViewTextBoxColumn ClmZona_donde_se_aplico;
         private DataGridViewTextBoxColumn Clmparticipacion;
-        public TextBox txtseleccion;
+        private ComboBox comboSeleccion;
     }
 }
