@@ -42,6 +42,7 @@
             btpaciente = new FontAwesome.Sharp.IconButton();
             tabla = new DataGridView();
             Clmfecha = new DataGridViewTextBoxColumn();
+            Clm = new DataGridViewTextBoxColumn();
             Clmtipodevacuna = new DataGridViewTextBoxColumn();
             Clmrango_de_edades = new DataGridViewTextBoxColumn();
             ClmFecha_De_Administracion = new DataGridViewTextBoxColumn();
@@ -52,6 +53,9 @@
             btactualizar = new FontAwesome.Sharp.IconButton();
             btguardar = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
+            iconMostrar = new FontAwesome.Sharp.IconButton();
+            txtdosis = new TextBox();
+            lbDosis = new Label();
             ((System.ComponentModel.ISupportInitialize)tabla).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -120,7 +124,7 @@
             // 
             txtfechadeadministracion.BackColor = Color.WhiteSmoke;
             txtfechadeadministracion.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtfechadeadministracion.Location = new Point(452, 36);
+            txtfechadeadministracion.Location = new Point(452, 9);
             txtfechadeadministracion.Name = "txtfechadeadministracion";
             txtfechadeadministracion.Size = new Size(124, 25);
             txtfechadeadministracion.TabIndex = 7;
@@ -130,7 +134,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.WhiteSmoke;
-            label4.Location = new Point(266, 39);
+            label4.Location = new Point(261, 17);
             label4.Name = "label4";
             label4.Size = new Size(177, 17);
             label4.TabIndex = 6;
@@ -141,7 +145,7 @@
             // 
             txtfechadeprimeravacuna.BackColor = Color.WhiteSmoke;
             txtfechadeprimeravacuna.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtfechadeprimeravacuna.Location = new Point(452, 84);
+            txtfechadeprimeravacuna.Location = new Point(452, 45);
             txtfechadeprimeravacuna.Name = "txtfechadeprimeravacuna";
             txtfechadeprimeravacuna.Size = new Size(124, 25);
             txtfechadeprimeravacuna.TabIndex = 9;
@@ -151,7 +155,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.WhiteSmoke;
-            label5.Location = new Point(260, 90);
+            label5.Location = new Point(261, 53);
             label5.Name = "label5";
             label5.Size = new Size(183, 17);
             label5.TabIndex = 8;
@@ -192,7 +196,7 @@
             // 
             tabla.BackgroundColor = Color.WhiteSmoke;
             tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tabla.Columns.AddRange(new DataGridViewColumn[] { Clmfecha, Clmtipodevacuna, Clmrango_de_edades, ClmFecha_De_Administracion, Clmfecha_de_próxima_vacuda });
+            tabla.Columns.AddRange(new DataGridViewColumn[] { Clmfecha, Clm, Clmtipodevacuna, Clmrango_de_edades, ClmFecha_De_Administracion, Clmfecha_de_próxima_vacuda });
             tabla.Location = new Point(40, 170);
             tabla.Name = "tabla";
             tabla.RowTemplate.Height = 25;
@@ -203,6 +207,11 @@
             // 
             Clmfecha.HeaderText = "Fecha";
             Clmfecha.Name = "Clmfecha";
+            // 
+            // Clm
+            // 
+            Clm.HeaderText = "Dosis";
+            Clm.Name = "Clm";
             // 
             // Clmtipodevacuna
             // 
@@ -247,7 +256,7 @@
             btmodificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btmodificar.IconSize = 20;
             btmodificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btmodificar.Location = new Point(126, 0);
+            btmodificar.Location = new Point(259, 0);
             btmodificar.Name = "btmodificar";
             btmodificar.Size = new Size(129, 46);
             btmodificar.TabIndex = 14;
@@ -268,7 +277,7 @@
             bteliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             bteliminar.IconSize = 20;
             bteliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            bteliminar.Location = new Point(255, 0);
+            bteliminar.Location = new Point(388, 0);
             bteliminar.Name = "bteliminar";
             bteliminar.Size = new Size(129, 46);
             bteliminar.TabIndex = 15;
@@ -276,6 +285,7 @@
             bteliminar.TextAlign = ContentAlignment.MiddleLeft;
             bteliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
             bteliminar.UseVisualStyleBackColor = true;
+            bteliminar.Click += bteliminar_Click;
             // 
             // btactualizar
             // 
@@ -289,7 +299,7 @@
             btactualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btactualizar.IconSize = 20;
             btactualizar.ImageAlign = ContentAlignment.MiddleLeft;
-            btactualizar.Location = new Point(-3, 0);
+            btactualizar.Location = new Point(130, 0);
             btactualizar.Name = "btactualizar";
             btactualizar.Size = new Size(129, 46);
             btactualizar.TabIndex = 17;
@@ -297,6 +307,7 @@
             btactualizar.TextAlign = ContentAlignment.MiddleLeft;
             btactualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btactualizar.UseVisualStyleBackColor = true;
+            btactualizar.Click += btactualizar_Click;
             // 
             // btguardar
             // 
@@ -310,7 +321,7 @@
             btguardar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             btguardar.IconSize = 20;
             btguardar.ImageAlign = ContentAlignment.MiddleLeft;
-            btguardar.Location = new Point(384, 0);
+            btguardar.Location = new Point(517, 0);
             btguardar.Name = "btguardar";
             btguardar.Size = new Size(129, 46);
             btguardar.TabIndex = 16;
@@ -318,23 +329,69 @@
             btguardar.TextAlign = ContentAlignment.MiddleLeft;
             btguardar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btguardar.UseVisualStyleBackColor = true;
+            btguardar.Click += btguardar_Click;
             // 
             // panel1
             // 
+            panel1.Controls.Add(iconMostrar);
             panel1.Controls.Add(btactualizar);
             panel1.Controls.Add(btmodificar);
             panel1.Controls.Add(bteliminar);
             panel1.Controls.Add(btguardar);
-            panel1.Location = new Point(88, 354);
+            panel1.Location = new Point(40, 354);
             panel1.Name = "panel1";
-            panel1.Size = new Size(513, 46);
+            panel1.Size = new Size(646, 46);
             panel1.TabIndex = 18;
+            // 
+            // iconMostrar
+            // 
+            iconMostrar.Dock = DockStyle.Right;
+            iconMostrar.FlatAppearance.BorderSize = 0;
+            iconMostrar.FlatStyle = FlatStyle.Flat;
+            iconMostrar.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            iconMostrar.ForeColor = Color.WhiteSmoke;
+            iconMostrar.IconChar = FontAwesome.Sharp.IconChar.FileEdit;
+            iconMostrar.IconColor = Color.WhiteSmoke;
+            iconMostrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconMostrar.IconSize = 20;
+            iconMostrar.ImageAlign = ContentAlignment.MiddleLeft;
+            iconMostrar.Location = new Point(1, 0);
+            iconMostrar.Name = "iconMostrar";
+            iconMostrar.Size = new Size(129, 46);
+            iconMostrar.TabIndex = 18;
+            iconMostrar.Text = "Mostrar";
+            iconMostrar.TextAlign = ContentAlignment.MiddleLeft;
+            iconMostrar.TextImageRelation = TextImageRelation.ImageBeforeText;
+            iconMostrar.UseVisualStyleBackColor = true;
+            iconMostrar.Click += iconMostrar_Click;
+            // 
+            // txtdosis
+            // 
+            txtdosis.BackColor = Color.WhiteSmoke;
+            txtdosis.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtdosis.Location = new Point(452, 84);
+            txtdosis.Name = "txtdosis";
+            txtdosis.Size = new Size(124, 25);
+            txtdosis.TabIndex = 20;
+            // 
+            // lbDosis
+            // 
+            lbDosis.AutoSize = true;
+            lbDosis.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbDosis.ForeColor = Color.WhiteSmoke;
+            lbDosis.Location = new Point(388, 92);
+            lbDosis.Name = "lbDosis";
+            lbDosis.Size = new Size(50, 17);
+            lbDosis.TabIndex = 19;
+            lbDosis.Text = "Dosis:";
             // 
             // Registro_de_administración_de_vacunas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 0, 64);
+            Controls.Add(txtdosis);
+            Controls.Add(lbDosis);
             Controls.Add(panel1);
             Controls.Add(label7);
             Controls.Add(tabla);
@@ -352,6 +409,7 @@
             Controls.Add(label1);
             Name = "Registro_de_administración_de_vacunas";
             Size = new Size(705, 413);
+            Load += Registro_de_administración_de_vacunas_Load;
             ((System.ComponentModel.ISupportInitialize)tabla).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -373,16 +431,20 @@
         private Label label6;
         private FontAwesome.Sharp.IconButton btpaciente;
         private DataGridView tabla;
-        private DataGridViewTextBoxColumn Clmfecha;
-        private DataGridViewTextBoxColumn Clmtipodevacuna;
-        private DataGridViewTextBoxColumn Clmrango_de_edades;
-        private DataGridViewTextBoxColumn ClmFecha_De_Administracion;
-        private DataGridViewTextBoxColumn Clmfecha_de_próxima_vacuda;
         private Label label7;
         private FontAwesome.Sharp.IconButton btmodificar;
         private FontAwesome.Sharp.IconButton bteliminar;
         private FontAwesome.Sharp.IconButton btactualizar;
         private FontAwesome.Sharp.IconButton btguardar;
         private Panel panel1;
+        private DataGridViewTextBoxColumn Clmfecha;
+        private DataGridViewTextBoxColumn Clm;
+        private DataGridViewTextBoxColumn Clmtipodevacuna;
+        private DataGridViewTextBoxColumn Clmrango_de_edades;
+        private DataGridViewTextBoxColumn ClmFecha_De_Administracion;
+        private DataGridViewTextBoxColumn Clmfecha_de_próxima_vacuda;
+        private TextBox txtdosis;
+        private Label lbDosis;
+        private FontAwesome.Sharp.IconButton iconMostrar;
     }
 }

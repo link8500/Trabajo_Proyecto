@@ -36,6 +36,8 @@
             label8 = new Label();
             pictureBox1 = new PictureBox();
             label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -79,9 +81,9 @@
             label4.ForeColor = Color.WhiteSmoke;
             label4.Location = new Point(23, 309);
             label4.Name = "label4";
-            label4.Size = new Size(93, 22);
+            label4.Size = new Size(94, 22);
             label4.TabIndex = 5;
-            label4.Text = "Dirrecion:";
+            label4.Text = "Dirección:";
             // 
             // label9
             // 
@@ -126,11 +128,35 @@
             label5.TabIndex = 14;
             label5.Text = "Informacion De Contacto";
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.WhiteSmoke;
+            label6.Location = new Point(132, 309);
+            label6.Name = "label6";
+            label6.Size = new Size(357, 22);
+            label6.TabIndex = 15;
+            label6.Text = "Rotonda Rubén dario 1C,Sur 2 1 , Calle O";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Times New Roman", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.WhiteSmoke;
+            label7.Location = new Point(110, 344);
+            label7.Name = "label7";
+            label7.Size = new Size(96, 22);
+            label7.TabIndex = 16;
+            label7.Text = "8851-0466";
+            // 
             // Información_Del_Centro_De_Salud
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 0, 64);
+            Controls.Add(label7);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(pictureBox1);
             Controls.Add(label8);
@@ -156,5 +182,7 @@
         private Label label8;
         private PictureBox pictureBox1;
         private Label label5;
+        private Label label6;
+        private Label label7;
     }
 }

@@ -124,7 +124,7 @@
             // txtedad
             // 
             txtedad.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtedad.Location = new Point(122, 71);
+            txtedad.Location = new Point(122, 69);
             txtedad.Name = "txtedad";
             txtedad.Size = new Size(154, 25);
             txtedad.TabIndex = 8;
@@ -179,6 +179,7 @@
             bteliminar.TextAlign = ContentAlignment.MiddleLeft;
             bteliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
             bteliminar.UseVisualStyleBackColor = true;
+            bteliminar.Click += bteliminar_Click;
             // 
             // btActualizar
             // 
@@ -197,6 +198,7 @@
             btActualizar.Text = "Actualizar";
             btActualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btActualizar.UseVisualStyleBackColor = true;
+            btActualizar.Click += btActualizar_Click;
             // 
             // btmodificar
             // 
@@ -204,7 +206,7 @@
             btmodificar.FlatStyle = FlatStyle.Flat;
             btmodificar.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
             btmodificar.ForeColor = Color.WhiteSmoke;
-            btmodificar.IconChar = FontAwesome.Sharp.IconChar.FilePen;
+            btmodificar.IconChar = FontAwesome.Sharp.IconChar.FileEdit;
             btmodificar.IconColor = Color.WhiteSmoke;
             btmodificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btmodificar.IconSize = 25;
@@ -237,6 +239,7 @@
             btGuardar.TextAlign = ContentAlignment.MiddleLeft;
             btGuardar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btGuardar.UseVisualStyleBackColor = true;
+            btGuardar.Click += btGuardar_Click;
             // 
             // tabla
             // 
@@ -261,7 +264,7 @@
             // 
             // ClmDireccion
             // 
-            ClmDireccion.HeaderText = "Dirrecion";
+            ClmDireccion.HeaderText = "Direccion";
             ClmDireccion.Name = "ClmDireccion";
             // 
             // ClmTelefono
@@ -293,6 +296,7 @@
             btmostrar.TextAlign = ContentAlignment.MiddleLeft;
             btmostrar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btmostrar.UseVisualStyleBackColor = true;
+            btmostrar.Click += btmostrar_Click;
             // 
             // Informacion_Del_Paciente
             // 
@@ -341,11 +345,11 @@
         private FontAwesome.Sharp.IconButton btmodificar;
         private FontAwesome.Sharp.IconButton btGuardar;
         private DataGridView tabla;
+        private FontAwesome.Sharp.IconButton btmostrar;
         private DataGridViewTextBoxColumn Clmnombre;
         private DataGridViewTextBoxColumn Clmedad;
         private DataGridViewTextBoxColumn ClmDireccion;
         private DataGridViewTextBoxColumn ClmTelefono;
         private DataGridViewTextBoxColumn ClmEnfermeades_del_paciente;
-        private FontAwesome.Sharp.IconButton btmostrar;
     }
 }

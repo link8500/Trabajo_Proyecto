@@ -30,18 +30,18 @@
         {
             label1 = new Label();
             tablavacunas = new DataGridView();
+            bteliminar = new FontAwesome.Sharp.IconButton();
+            btActualizar = new FontAwesome.Sharp.IconButton();
+            btmostrar = new FontAwesome.Sharp.IconButton();
+            panel1 = new Panel();
             Clm = new DataGridViewTextBoxColumn();
+            Clmnumero = new DataGridViewTextBoxColumn();
             clmtipo = new DataGridViewTextBoxColumn();
             Clmdosis = new DataGridViewTextBoxColumn();
             clmfecha_de_vencimiento = new DataGridViewTextBoxColumn();
             ClmEdad = new DataGridViewTextBoxColumn();
             ClmDescripcion = new DataGridViewTextBoxColumn();
-            Clmcontraidicaciones = new DataGridViewTextBoxColumn();
-            Clmefectos_secundarios = new DataGridViewTextBoxColumn();
-            bteliminar = new FontAwesome.Sharp.IconButton();
-            btActualizar = new FontAwesome.Sharp.IconButton();
-            btmostrar = new FontAwesome.Sharp.IconButton();
-            panel1 = new Panel();
+            Clmdirrecion = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)tablavacunas).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -53,61 +53,21 @@
             label1.ForeColor = Color.WhiteSmoke;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(130, 15);
+            label1.Size = new Size(218, 15);
             label1.TabIndex = 0;
-            label1.Text = "Informacion de vacunas";
+            label1.Text = "Informacion de vacunas , admisnistradas";
             // 
             // tablavacunas
             // 
             tablavacunas.BackgroundColor = Color.WhiteSmoke;
             tablavacunas.BorderStyle = BorderStyle.None;
             tablavacunas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            tablavacunas.Columns.AddRange(new DataGridViewColumn[] { Clm, clmtipo, Clmdosis, clmfecha_de_vencimiento, ClmEdad, ClmDescripcion, Clmcontraidicaciones, Clmefectos_secundarios });
-            tablavacunas.Location = new Point(18, 18);
+            tablavacunas.Columns.AddRange(new DataGridViewColumn[] { Clm, Clmnumero, clmtipo, Clmdosis, clmfecha_de_vencimiento, ClmEdad, ClmDescripcion, Clmdirrecion });
+            tablavacunas.Location = new Point(29, 18);
             tablavacunas.Name = "tablavacunas";
             tablavacunas.RowTemplate.Height = 25;
-            tablavacunas.Size = new Size(661, 328);
+            tablavacunas.Size = new Size(643, 328);
             tablavacunas.TabIndex = 17;
-            // 
-            // Clm
-            // 
-            Clm.HeaderText = "Nombre";
-            Clm.Name = "Clm";
-            // 
-            // clmtipo
-            // 
-            clmtipo.HeaderText = "Tipo";
-            clmtipo.Name = "clmtipo";
-            // 
-            // Clmdosis
-            // 
-            Clmdosis.HeaderText = "Dosis";
-            Clmdosis.Name = "Clmdosis";
-            // 
-            // clmfecha_de_vencimiento
-            // 
-            clmfecha_de_vencimiento.HeaderText = "Fecha De Vencimiento";
-            clmfecha_de_vencimiento.Name = "clmfecha_de_vencimiento";
-            // 
-            // ClmEdad
-            // 
-            ClmEdad.HeaderText = "Edad";
-            ClmEdad.Name = "ClmEdad";
-            // 
-            // ClmDescripcion
-            // 
-            ClmDescripcion.HeaderText = "Descripción";
-            ClmDescripcion.Name = "ClmDescripcion";
-            // 
-            // Clmcontraidicaciones
-            // 
-            Clmcontraidicaciones.HeaderText = "Contraindicaciones";
-            Clmcontraidicaciones.Name = "Clmcontraidicaciones";
-            // 
-            // Clmefectos_secundarios
-            // 
-            Clmefectos_secundarios.HeaderText = "Efectos Secundarios";
-            Clmefectos_secundarios.Name = "Clmefectos_secundarios";
             // 
             // bteliminar
             // 
@@ -171,6 +131,7 @@
             btmostrar.TextAlign = ContentAlignment.MiddleLeft;
             btmostrar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btmostrar.UseVisualStyleBackColor = true;
+            btmostrar.Click += btmostrar_Click;
             // 
             // panel1
             // 
@@ -183,6 +144,46 @@
             panel1.TabIndex = 22;
             panel1.Paint += panel1_Paint;
             // 
+            // Clm
+            // 
+            Clm.HeaderText = "Nombre";
+            Clm.Name = "Clm";
+            // 
+            // Clmnumero
+            // 
+            Clmnumero.HeaderText = "Numero";
+            Clmnumero.Name = "Clmnumero";
+            // 
+            // clmtipo
+            // 
+            clmtipo.HeaderText = "Tipo";
+            clmtipo.Name = "clmtipo";
+            // 
+            // Clmdosis
+            // 
+            Clmdosis.HeaderText = "Dosis";
+            Clmdosis.Name = "Clmdosis";
+            // 
+            // clmfecha_de_vencimiento
+            // 
+            clmfecha_de_vencimiento.HeaderText = "Fecha De Vencimiento";
+            clmfecha_de_vencimiento.Name = "clmfecha_de_vencimiento";
+            // 
+            // ClmEdad
+            // 
+            ClmEdad.HeaderText = "Edad";
+            ClmEdad.Name = "ClmEdad";
+            // 
+            // ClmDescripcion
+            // 
+            ClmDescripcion.HeaderText = "Descripción";
+            ClmDescripcion.Name = "ClmDescripcion";
+            // 
+            // Clmdirrecion
+            // 
+            Clmdirrecion.HeaderText = "Direccion";
+            Clmdirrecion.Name = "Clmdirrecion";
+            // 
             // información_De_Vacunas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -193,6 +194,7 @@
             Controls.Add(label1);
             Name = "información_De_Vacunas";
             Size = new Size(705, 413);
+            Load += información_De_Vacunas_Load;
             ((System.ComponentModel.ISupportInitialize)tablavacunas).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
@@ -208,12 +210,12 @@
         private FontAwesome.Sharp.IconButton btmostrar;
         private Panel panel1;
         private DataGridViewTextBoxColumn Clm;
+        private DataGridViewTextBoxColumn Clmnumero;
         private DataGridViewTextBoxColumn clmtipo;
         private DataGridViewTextBoxColumn Clmdosis;
         private DataGridViewTextBoxColumn clmfecha_de_vencimiento;
         private DataGridViewTextBoxColumn ClmEdad;
         private DataGridViewTextBoxColumn ClmDescripcion;
-        private DataGridViewTextBoxColumn Clmcontraidicaciones;
-        private DataGridViewTextBoxColumn Clmefectos_secundarios;
+        private DataGridViewTextBoxColumn Clmdirrecion;
     }
 }

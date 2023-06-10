@@ -54,6 +54,7 @@
             ClmRangodeedades = new DataGridViewTextBoxColumn();
             ClmZona_donde_se_aplico = new DataGridViewTextBoxColumn();
             Clmparticipacion = new DataGridViewTextBoxColumn();
+            txtseleccion = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tabla).BeginInit();
             SuspendLayout();
@@ -176,6 +177,7 @@
             btActualizar.TextAlign = ContentAlignment.MiddleLeft;
             btActualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btActualizar.UseVisualStyleBackColor = true;
+            btActualizar.Click += btActualizar_Click;
             // 
             // panel1
             // 
@@ -209,6 +211,7 @@
             BtModificar.TextAlign = ContentAlignment.MiddleLeft;
             BtModificar.TextImageRelation = TextImageRelation.ImageBeforeText;
             BtModificar.UseVisualStyleBackColor = true;
+            BtModificar.Click += BtModificar_Click;
             // 
             // btMostrar
             // 
@@ -230,6 +233,7 @@
             btMostrar.TextAlign = ContentAlignment.MiddleLeft;
             btMostrar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btMostrar.UseVisualStyleBackColor = true;
+            btMostrar.Click += btMostrar_Click;
             // 
             // btEliminar
             // 
@@ -251,6 +255,7 @@
             btEliminar.TextAlign = ContentAlignment.MiddleLeft;
             btEliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btEliminar.UseVisualStyleBackColor = true;
+            btEliminar.Click += btEliminar_Click;
             // 
             // btGuardar
             // 
@@ -272,6 +277,7 @@
             btGuardar.TextAlign = ContentAlignment.MiddleLeft;
             btGuardar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btGuardar.UseVisualStyleBackColor = true;
+            btGuardar.Click += btGuardar_Click;
             // 
             // btSeleccion
             // 
@@ -292,10 +298,12 @@
             btSeleccion.TextAlign = ContentAlignment.MiddleLeft;
             btSeleccion.TextImageRelation = TextImageRelation.ImageBeforeText;
             btSeleccion.UseVisualStyleBackColor = true;
+            btSeleccion.Click += btSeleccion_Click;
             // 
             // rdbSi
             // 
             rdbSi.AutoSize = true;
+            rdbSi.Checked = true;
             rdbSi.Font = new Font("Times New Roman", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             rdbSi.ForeColor = Color.WhiteSmoke;
             rdbSi.Location = new Point(128, 36);
@@ -315,7 +323,6 @@
             rdbNo.Name = "rdbNo";
             rdbNo.Size = new Size(45, 21);
             rdbNo.TabIndex = 17;
-            rdbNo.TabStop = true;
             rdbNo.Text = "No";
             rdbNo.UseVisualStyleBackColor = true;
             // 
@@ -360,11 +367,22 @@
             Clmparticipacion.HeaderText = "Empleados Que Participaron";
             Clmparticipacion.Name = "Clmparticipacion";
             // 
+            // txtseleccion
+            // 
+            txtseleccion.Enabled = false;
+            txtseleccion.Font = new Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            txtseleccion.Location = new Point(297, 164);
+            txtseleccion.Multiline = true;
+            txtseleccion.Name = "txtseleccion";
+            txtseleccion.Size = new Size(257, 40);
+            txtseleccion.TabIndex = 19;
+            // 
             // eventos_de_vacunacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 0, 64);
+            Controls.Add(txtseleccion);
             Controls.Add(tabla);
             Controls.Add(rdbNo);
             Controls.Add(rdbSi);
@@ -416,5 +434,6 @@
         private DataGridViewTextBoxColumn ClmRangodeedades;
         private DataGridViewTextBoxColumn ClmZona_donde_se_aplico;
         private DataGridViewTextBoxColumn Clmparticipacion;
+        public TextBox txtseleccion;
     }
 }

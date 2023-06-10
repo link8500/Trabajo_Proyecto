@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trabajo_Proyecto", "Trabajo_Proyecto\Trabajo_Proyecto.csproj", "{62771F16-0009-4EAC-9A13-74869D31DED9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trabajo_Proyecto", "Trabajo_Proyecto\Trabajo_Proyecto.csproj", "{62771F16-0009-4EAC-9A13-74869D31DED9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexionBDSQL", "ConexionBDSQL\ConexionBDSQL.csproj", "{57BDA29A-81DE-4C35-85FF-D47BBD8DB149}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{62771F16-0009-4EAC-9A13-74869D31DED9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62771F16-0009-4EAC-9A13-74869D31DED9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62771F16-0009-4EAC-9A13-74869D31DED9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57BDA29A-81DE-4C35-85FF-D47BBD8DB149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57BDA29A-81DE-4C35-85FF-D47BBD8DB149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57BDA29A-81DE-4C35-85FF-D47BBD8DB149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57BDA29A-81DE-4C35-85FF-D47BBD8DB149}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

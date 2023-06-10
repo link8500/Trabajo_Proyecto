@@ -30,34 +30,39 @@
         {
             iconBtguardar = new FontAwesome.Sharp.IconButton();
             iconBteliminar = new FontAwesome.Sharp.IconButton();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            label1 = new Label();
+            txtdepartamento = new TextBox();
+            txtcargo = new TextBox();
+            txtnombre = new TextBox();
+            lbnombre = new Label();
             label2 = new Label();
             label3 = new Label();
             iconBtmostrar = new FontAwesome.Sharp.IconButton();
             iconBtActualizar = new FontAwesome.Sharp.IconButton();
-            dataGridView1 = new DataGridView();
+            tabla = new DataGridView();
             ClmNombre = new DataGridViewTextBoxColumn();
             ClmCargo = new DataGridViewTextBoxColumn();
             Clmdepartamento = new DataGridViewTextBoxColumn();
             Clmedad = new DataGridViewTextBoxColumn();
             Clmsexo = new DataGridViewTextBoxColumn();
+            Clmnumero = new DataGridViewTextBoxColumn();
             label4 = new Label();
             btmodificar = new FontAwesome.Sharp.IconButton();
             rdbhombre = new RadioButton();
             rdbmujer = new RadioButton();
             label5 = new Label();
             label6 = new Label();
-            textBox4 = new TextBox();
-            listBox1 = new ListBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            txtedad = new TextBox();
+            panel1 = new Panel();
+            lbnumero = new Label();
+            txtnumero = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)tabla).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // iconBtguardar
             // 
             iconBtguardar.BackColor = Color.FromArgb(0, 0, 64);
+            iconBtguardar.Dock = DockStyle.Top;
             iconBtguardar.FlatAppearance.BorderSize = 0;
             iconBtguardar.FlatStyle = FlatStyle.Flat;
             iconBtguardar.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -67,18 +72,20 @@
             iconBtguardar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconBtguardar.IconSize = 23;
             iconBtguardar.ImageAlign = ContentAlignment.MiddleLeft;
-            iconBtguardar.Location = new Point(339, 77);
+            iconBtguardar.Location = new Point(0, 80);
             iconBtguardar.Name = "iconBtguardar";
-            iconBtguardar.Size = new Size(88, 26);
+            iconBtguardar.Size = new Size(140, 40);
             iconBtguardar.TabIndex = 0;
             iconBtguardar.Text = "Guardar";
             iconBtguardar.TextAlign = ContentAlignment.MiddleLeft;
             iconBtguardar.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconBtguardar.UseVisualStyleBackColor = false;
+            iconBtguardar.Click += iconBtguardar_Click;
             // 
             // iconBteliminar
             // 
             iconBteliminar.BackColor = Color.FromArgb(0, 0, 64);
+            iconBteliminar.Dock = DockStyle.Top;
             iconBteliminar.FlatAppearance.BorderSize = 0;
             iconBteliminar.FlatStyle = FlatStyle.Flat;
             iconBteliminar.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -88,53 +95,54 @@
             iconBteliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconBteliminar.IconSize = 23;
             iconBteliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            iconBteliminar.Location = new Point(447, 80);
+            iconBteliminar.Location = new Point(0, 160);
             iconBteliminar.Name = "iconBteliminar";
-            iconBteliminar.Size = new Size(88, 26);
+            iconBteliminar.Size = new Size(140, 40);
             iconBteliminar.TabIndex = 1;
             iconBteliminar.Text = "Eliminar";
             iconBteliminar.TextAlign = ContentAlignment.MiddleLeft;
             iconBteliminar.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconBteliminar.UseVisualStyleBackColor = false;
+            iconBteliminar.Click += iconBteliminar_Click;
             // 
-            // textBox1
+            // txtdepartamento
             // 
-            textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(133, 129);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(158, 26);
-            textBox1.TabIndex = 2;
+            txtdepartamento.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtdepartamento.Location = new Point(133, 129);
+            txtdepartamento.Multiline = true;
+            txtdepartamento.Name = "txtdepartamento";
+            txtdepartamento.Size = new Size(158, 26);
+            txtdepartamento.TabIndex = 2;
             // 
-            // textBox2
+            // txtcargo
             // 
-            textBox2.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox2.Location = new Point(133, 73);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(158, 26);
-            textBox2.TabIndex = 3;
+            txtcargo.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtcargo.Location = new Point(133, 73);
+            txtcargo.Multiline = true;
+            txtcargo.Name = "txtcargo";
+            txtcargo.Size = new Size(158, 26);
+            txtcargo.TabIndex = 3;
             // 
-            // textBox3
+            // txtnombre
             // 
-            textBox3.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox3.Location = new Point(133, 24);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(158, 26);
-            textBox3.TabIndex = 4;
+            txtnombre.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtnombre.Location = new Point(133, 24);
+            txtnombre.Multiline = true;
+            txtnombre.Name = "txtnombre";
+            txtnombre.Size = new Size(158, 26);
+            txtnombre.TabIndex = 4;
             // 
-            // label1
+            // lbnombre
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(55, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(68, 19);
-            label1.TabIndex = 6;
-            label1.Text = "Nombre:";
-            label1.Click += label1_Click;
+            lbnombre.AutoSize = true;
+            lbnombre.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbnombre.ForeColor = Color.WhiteSmoke;
+            lbnombre.Location = new Point(55, 31);
+            lbnombre.Name = "lbnombre";
+            lbnombre.Size = new Size(68, 19);
+            lbnombre.TabIndex = 6;
+            lbnombre.Text = "Nombre:";
+            lbnombre.Click += label1_Click;
             // 
             // label2
             // 
@@ -161,6 +169,7 @@
             // iconBtmostrar
             // 
             iconBtmostrar.BackColor = Color.FromArgb(0, 0, 64);
+            iconBtmostrar.Dock = DockStyle.Top;
             iconBtmostrar.FlatAppearance.BorderSize = 0;
             iconBtmostrar.FlatStyle = FlatStyle.Flat;
             iconBtmostrar.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -170,18 +179,20 @@
             iconBtmostrar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             iconBtmostrar.IconSize = 23;
             iconBtmostrar.ImageAlign = ContentAlignment.MiddleLeft;
-            iconBtmostrar.Location = new Point(391, 158);
+            iconBtmostrar.Location = new Point(0, 120);
             iconBtmostrar.Name = "iconBtmostrar";
-            iconBtmostrar.Size = new Size(88, 26);
+            iconBtmostrar.Size = new Size(140, 40);
             iconBtmostrar.TabIndex = 11;
             iconBtmostrar.Text = "Mostrar";
             iconBtmostrar.TextAlign = ContentAlignment.MiddleLeft;
             iconBtmostrar.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconBtmostrar.UseVisualStyleBackColor = false;
+            iconBtmostrar.Click += iconBtmostrar_Click;
             // 
             // iconBtActualizar
             // 
             iconBtActualizar.BackColor = Color.FromArgb(0, 0, 64);
+            iconBtActualizar.Dock = DockStyle.Top;
             iconBtActualizar.FlatAppearance.BorderSize = 0;
             iconBtActualizar.FlatStyle = FlatStyle.Flat;
             iconBtActualizar.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -191,25 +202,27 @@
             iconBtActualizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconBtActualizar.IconSize = 23;
             iconBtActualizar.ImageAlign = ContentAlignment.MiddleLeft;
-            iconBtActualizar.Location = new Point(447, 126);
+            iconBtActualizar.Location = new Point(0, 0);
             iconBtActualizar.Name = "iconBtActualizar";
-            iconBtActualizar.Size = new Size(88, 26);
+            iconBtActualizar.Size = new Size(140, 40);
             iconBtActualizar.TabIndex = 10;
             iconBtActualizar.Text = "Actualizar";
             iconBtActualizar.TextAlign = ContentAlignment.MiddleLeft;
             iconBtActualizar.TextImageRelation = TextImageRelation.ImageBeforeText;
             iconBtActualizar.UseVisualStyleBackColor = false;
+            iconBtActualizar.Click += iconBtActualizar_Click;
             // 
-            // dataGridView1
+            // tabla
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ClmNombre, ClmCargo, Clmdepartamento, Clmedad, Clmsexo });
-            dataGridView1.Location = new Point(17, 222);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(680, 164);
-            dataGridView1.TabIndex = 12;
+            tabla.BackgroundColor = Color.White;
+            tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tabla.Columns.AddRange(new DataGridViewColumn[] { ClmNombre, ClmCargo, Clmdepartamento, Clmedad, Clmsexo, Clmnumero });
+            tabla.Location = new Point(17, 222);
+            tabla.Name = "tabla";
+            tabla.RowTemplate.Height = 25;
+            tabla.Size = new Size(680, 164);
+            tabla.TabIndex = 12;
+            tabla.CellContentClick += tabla_CellContentClick;
             // 
             // ClmNombre
             // 
@@ -239,6 +252,11 @@
             Clmsexo.HeaderText = "Sexo";
             Clmsexo.Name = "Clmsexo";
             // 
+            // Clmnumero
+            // 
+            Clmnumero.HeaderText = "Numero";
+            Clmnumero.Name = "Clmnumero";
+            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -253,6 +271,7 @@
             // btmodificar
             // 
             btmodificar.BackColor = Color.FromArgb(0, 0, 64);
+            btmodificar.Dock = DockStyle.Top;
             btmodificar.FlatAppearance.BorderSize = 0;
             btmodificar.FlatStyle = FlatStyle.Flat;
             btmodificar.Font = new Font("Times New Roman", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -262,18 +281,20 @@
             btmodificar.IconFont = FontAwesome.Sharp.IconFont.Solid;
             btmodificar.IconSize = 23;
             btmodificar.ImageAlign = ContentAlignment.MiddleLeft;
-            btmodificar.Location = new Point(339, 126);
+            btmodificar.Location = new Point(0, 40);
             btmodificar.Name = "btmodificar";
-            btmodificar.Size = new Size(88, 26);
+            btmodificar.Size = new Size(140, 40);
             btmodificar.TabIndex = 14;
             btmodificar.Text = "Modificar";
             btmodificar.TextAlign = ContentAlignment.MiddleLeft;
             btmodificar.TextImageRelation = TextImageRelation.ImageBeforeText;
             btmodificar.UseVisualStyleBackColor = false;
+            btmodificar.Click += btmodificar_Click;
             // 
             // rdbhombre
             // 
             rdbhombre.AutoSize = true;
+            rdbhombre.Checked = true;
             rdbhombre.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             rdbhombre.ForeColor = Color.WhiteSmoke;
             rdbhombre.Location = new Point(133, 180);
@@ -293,7 +314,6 @@
             rdbmujer.Name = "rdbmujer";
             rdbmujer.Size = new Size(69, 23);
             rdbmujer.TabIndex = 16;
-            rdbmujer.TabStop = true;
             rdbmujer.Text = "Mujer";
             rdbmujer.UseVisualStyleBackColor = true;
             // 
@@ -313,57 +333,78 @@
             label6.AutoSize = true;
             label6.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.WhiteSmoke;
-            label6.Location = new Point(310, 31);
+            label6.Location = new Point(330, 31);
             label6.Name = "label6";
             label6.Size = new Size(48, 19);
             label6.TabIndex = 19;
             label6.Text = "Edad:";
             // 
-            // textBox4
+            // txtedad
             // 
-            textBox4.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox4.Location = new Point(364, 24);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(104, 26);
-            textBox4.TabIndex = 18;
+            txtedad.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtedad.Location = new Point(397, 24);
+            txtedad.Multiline = true;
+            txtedad.Name = "txtedad";
+            txtedad.Size = new Size(104, 26);
+            txtedad.TabIndex = 18;
             // 
-            // listBox1
+            // panel1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 15;
-            listBox1.Location = new Point(559, 24);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(120, 94);
-            listBox1.TabIndex = 20;
+            panel1.Controls.Add(iconBteliminar);
+            panel1.Controls.Add(iconBtmostrar);
+            panel1.Controls.Add(iconBtguardar);
+            panel1.Controls.Add(btmodificar);
+            panel1.Controls.Add(iconBtActualizar);
+            panel1.Location = new Point(562, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(140, 199);
+            panel1.TabIndex = 20;
+            // 
+            // lbnumero
+            // 
+            lbnumero.AutoSize = true;
+            lbnumero.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbnumero.ForeColor = Color.WhiteSmoke;
+            lbnumero.Location = new Point(310, 80);
+            lbnumero.Name = "lbnumero";
+            lbnumero.Size = new Size(68, 19);
+            lbnumero.TabIndex = 22;
+            lbnumero.Text = "Numero:";
+            // 
+            // txtnumero
+            // 
+            txtnumero.Font = new Font("Times New Roman", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtnumero.Location = new Point(397, 73);
+            txtnumero.Multiline = true;
+            txtnumero.Name = "txtnumero";
+            txtnumero.Size = new Size(104, 26);
+            txtnumero.TabIndex = 21;
             // 
             // Empleados
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(0, 0, 64);
-            Controls.Add(listBox1);
+            Controls.Add(lbnumero);
+            Controls.Add(txtnumero);
+            Controls.Add(panel1);
             Controls.Add(label6);
-            Controls.Add(textBox4);
+            Controls.Add(txtedad);
             Controls.Add(label5);
             Controls.Add(rdbmujer);
             Controls.Add(rdbhombre);
-            Controls.Add(btmodificar);
             Controls.Add(label4);
-            Controls.Add(dataGridView1);
-            Controls.Add(iconBtmostrar);
-            Controls.Add(iconBtActualizar);
+            Controls.Add(tabla);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(iconBteliminar);
-            Controls.Add(iconBtguardar);
+            Controls.Add(lbnombre);
+            Controls.Add(txtnombre);
+            Controls.Add(txtcargo);
+            Controls.Add(txtdepartamento);
             Name = "Empleados";
             Size = new Size(705, 413);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tabla).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -372,15 +413,14 @@
 
         private FontAwesome.Sharp.IconButton iconBtguardar;
         private FontAwesome.Sharp.IconButton iconBteliminar;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private Label label1;
+        private TextBox txtdepartamento;
+        private TextBox txtcargo;
+        private TextBox txtnombre;
+        private Label lbnombre;
         private Label label2;
         private Label label3;
         private FontAwesome.Sharp.IconButton iconBtmostrar;
         private FontAwesome.Sharp.IconButton iconBtActualizar;
-        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn ClmNombre;
         private DataGridViewTextBoxColumn ClmCargo;
         private DataGridViewTextBoxColumn Clmdepartamento;
@@ -392,7 +432,11 @@
         private DataGridViewTextBoxColumn Clmedad;
         private DataGridViewTextBoxColumn Clmsexo;
         private Label label6;
-        private TextBox textBox4;
-        private ListBox listBox1;
+        private TextBox txtedad;
+        public DataGridView tabla;
+        private DataGridViewTextBoxColumn Clmnumero;
+        private Panel panel1;
+        private Label lbnumero;
+        private TextBox txtnumero;
     }
 }

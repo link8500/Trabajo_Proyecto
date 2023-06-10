@@ -151,7 +151,7 @@ namespace Trabajo_Proyecto
             public static System.Drawing.Color color6 = System.Drawing.Color.FromArgb(86, 85, 147);
 
         }
-        private void aplicarpestañas(UserControl Pestaña)
+        public void aplicarpestañas(UserControl Pestaña)
         {
             Pestaña.Dock = DockStyle.Fill;
             panelcontenedor.Controls.Clear();
